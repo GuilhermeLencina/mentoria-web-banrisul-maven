@@ -1,20 +1,37 @@
 package CasosDeTeste;
 
+import PageObjects.PaginaDetalheProduto;
+import PageObjects.PaginaHome;
+import PageObjects.PaginaLogin;
 import Suporte.TesteBase;
+import Tarefas.CarrinhoTarefa;
+import Tarefas.DetalhaProdutoTarefa;
+import Tarefas.HomeTarefa;
+import Tarefas.LoginTarefa;
+import Utilitarios.EsperaFixa;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class RealizarCompraComSucesso extends TesteBase {
 
     private WebDriver driver = this.pegarDriver();
 
-    @Test
-    public void teste() throws InterruptedException {
+    LoginTarefa login = new LoginTarefa(driver);
+    HomeTarefa homePage = new HomeTarefa(driver);
+    DetalhaProdutoTarefa detalhaProduto = new DetalhaProdutoTarefa(driver);
+    CarrinhoTarefa carrinho = new CarrinhoTarefa(driver);
 
-        Thread.sleep(5000);
+    @Test
+    public void realizarCompra() {
+
+        EsperaFixa.aguardaEmSegundos(2);
+        login.realizarLogin();
+        homePage.selecionarProduto();
+        detalhaProduto.adicionarNoCarrinho();
+        carrinho.realizarChekout();
+
     }
 
     @Test
