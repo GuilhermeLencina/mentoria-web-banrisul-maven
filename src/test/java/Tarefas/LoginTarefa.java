@@ -2,6 +2,9 @@ package Tarefas;
 
 import PageObjects.PaginaHome;
 import PageObjects.PaginaLogin;
+import Suporte.Relatorio;
+import Suporte.Screenshot;
+import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
@@ -19,7 +22,7 @@ public class LoginTarefa {
     }
 
     public void realizarLogin(){
-
+        validaCarregouPaginaLogin();
         login.pegarInputNomeUsuario().sendKeys("standard_user");
         login.pegarInputPassword().sendKeys("secret_sauce");
         login.pegarBotaoLogin().click();
@@ -36,14 +39,25 @@ public class LoginTarefa {
 //
 //    }
 
+    private void validaCarregouPaginaLogin(){
+        try{
+            Assertions.assertTrue(login.pegarImagemRobozinho().isDisplayed());
+            Relatorio.log(Status.PASS, "Carregou a página de login", Screenshot.fullPageBase64(driver));
+        }catch (Exception e){
+
+            Relatorio.log(Status.FAIL,"Não carregou página de Login", Screenshot.fullPageBase64(driver));
+        }
+    }
+
+
     private void validaLogin(){
         try{
             String rotulo = selecionaProduto.pegarTextoDoCabecalhoDaHome().getText();
             Assertions.assertEquals(rotulo, "Products");
-            //Report.log(Status.PASS, "Login Realizado : " + rotulo , Screenshot.fullPageBase64(driver));
+            Relatorio.log(Status.PASS, "Login Realizado : " + rotulo , Screenshot.fullPageBase64(driver));
         }catch (Exception e){
 
-            //Report.log(Status.FAIL,"Login Falhou", Screenshot.fullPageBase64(driver));
+            Relatorio.log(Status.FAIL,"Login Falhou", Screenshot.fullPageBase64(driver));
         }
     }
 }

@@ -206,7 +206,6 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
 ### NetBeans ###
@@ -237,4 +236,6 @@ gradle-app.setting
 ### Gradle Patch ###
 **/build/
 
-# End of https://www.toptal.com/developers/gitignore/api/java,intellij,maven,gradle,eclipse,netbeans
+#####Relatórios######
+
+Relatorio/*

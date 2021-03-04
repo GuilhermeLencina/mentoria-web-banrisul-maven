@@ -1,18 +1,15 @@
 package CasosDeTeste;
 
-import PageObjects.PaginaDetalheProduto;
-import PageObjects.PaginaHome;
-import PageObjects.PaginaLogin;
-import Suporte.TesteBase;
-import Tarefas.CarrinhoTarefa;
-import Tarefas.DetalhaProdutoTarefa;
-import Tarefas.HomeTarefa;
-import Tarefas.LoginTarefa;
+import Suporte.*;
+import Tarefas.*;
 import Utilitarios.EsperaFixa;
+import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import static Suporte.Relatorio.log;
 
 public class RealizarCompraComSucesso extends TesteBase {
 
@@ -26,11 +23,18 @@ public class RealizarCompraComSucesso extends TesteBase {
     @Test
     public void realizarCompra() {
 
-        EsperaFixa.aguardaEmSegundos(2);
-        login.realizarLogin();
-        homePage.selecionarProduto();
-        detalhaProduto.adicionarNoCarrinho();
-        carrinho.realizarChekout();
+        try {
+            Relatorio.createTest("Realizar Compra com Sucesso" , TipoRelatorio.INDIVIDUAL);
+
+            EsperaFixa.aguardaEmSegundos(2);
+            login.realizarLogin();
+            homePage.selecionarProduto();
+            detalhaProduto.adicionarNoCarrinho();
+            carrinho.realizarChekout();
+
+        }catch (Exception e){
+            log(Status.ERROR, e.getMessage(), Screenshot.fullPageBase64(driver));
+        }
 
     }
 
