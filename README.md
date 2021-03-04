@@ -18,9 +18,9 @@ Este projeto conta com as seguintes tecnologias:
 
 **Main/Java**
 
-- **Framework** : Pasta onde se encontram classes de abstracao.
+- **Suporte** : Pasta onde se encontram classes de abstracao.
 
-- **Utils** :  Pasta onde ficam classes com métodos auxiliares para serem reutilizadas em outras classes.
+- **Utilitarios** :  Pasta onde ficam classes com métodos auxiliares para serem reutilizadas em outras classes.
 
 **Main/Resources**
 
@@ -31,11 +31,11 @@ Pasta onde se encontram arquivos de inputs para execução dos testes.
 
 - **PageObjects** : Pasta onde se encontram classes de mapeamento dos WebElements.
 
-- **Tasks** : Pasta onde se encontram classes de iteração com os WebElements.
+- **Tarefas** : Pasta onde se encontram classes de iteração com os WebElements.
 
-- **TestCases** : Pasta onde se encontram classes e métodos de Testes.
+- **CasosDeTeste** : Pasta onde se encontram classes e métodos de Testes.
 
-- **TestSuites** : Pasta onde se encontram classes de suites de execução dos Tests.
+- **SuiteDeTestes** : Pasta onde se encontram classes de suites de execução dos Tests.
 
 
 ## Como executar o projeto?
@@ -60,6 +60,6 @@ Feito isso, dentro da pasta do projeto, abra o CMD e digite o seguinte comando:
 
 Deverá executar a sequencia de testescases do pacote.
 
-## Reports
+## Relatórios de Teste
 
-Para visualizar os reports, após a execução, abra a pasta raiz do projeto e acesse a pasta "Report" e abra o aquivo MyReport.html.
+Para visualizar os reports, após a execução, abra a pasta raiz do projeto e acesse a pasta "Relatorio" e abra o aquivo "Meu_Relatorio.html".
